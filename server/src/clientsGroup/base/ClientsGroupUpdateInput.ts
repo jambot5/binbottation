@@ -12,9 +12,8 @@ https://docs.amplication.com/docs/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { CustomerUpdateManyWithoutClientsGroupsInput } from "./CustomerUpdateManyWithoutClientsGroupsInput";
-import { ValidateNested, IsOptional, IsEnum } from "class-validator";
+import { ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { EnumClientsGroupName } from "./EnumClientsGroupName";
 @InputType()
 class ClientsGroupUpdateInput {
   @ApiProperty({
@@ -31,13 +30,13 @@ class ClientsGroupUpdateInput {
 
   @ApiProperty({
     required: false,
-    enum: EnumClientsGroupName,
+    type: String,
   })
-  @IsEnum(EnumClientsGroupName)
+  @IsString()
   @IsOptional()
-  @Field(() => EnumClientsGroupName, {
+  @Field(() => String, {
     nullable: true,
   })
-  name?: "Round" | null;
+  name?: string | null;
 }
 export { ClientsGroupUpdateInput };

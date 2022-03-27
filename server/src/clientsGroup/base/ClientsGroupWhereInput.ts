@@ -12,10 +12,10 @@ https://docs.amplication.com/docs/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { CustomerListRelationFilter } from "../../customer/base/CustomerListRelationFilter";
-import { ValidateNested, IsOptional, IsEnum } from "class-validator";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
-import { EnumClientsGroupName } from "./EnumClientsGroupName";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 @InputType()
 class ClientsGroupWhereInput {
   @ApiProperty({
@@ -43,13 +43,13 @@ class ClientsGroupWhereInput {
 
   @ApiProperty({
     required: false,
-    enum: EnumClientsGroupName,
+    type: StringNullableFilter,
   })
-  @IsEnum(EnumClientsGroupName)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => EnumClientsGroupName, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  name?: "Round";
+  name?: StringNullableFilter;
 }
 export { ClientsGroupWhereInput };

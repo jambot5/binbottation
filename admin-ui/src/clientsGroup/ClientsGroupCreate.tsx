@@ -6,7 +6,7 @@ import {
   CreateProps,
   ReferenceArrayInput,
   SelectArrayInput,
-  SelectInput,
+  TextInput,
 } from "react-admin";
 
 import { CustomerTitle } from "../customer/CustomerTitle";
@@ -23,14 +23,7 @@ export const ClientsGroupCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={CustomerTitle} />
         </ReferenceArrayInput>
-        <SelectInput
-          source="name"
-          label="Name"
-          choices={[{ label: "Round", value: "Round" }]}
-          optionText="label"
-          allowEmpty
-          optionValue="value"
-        />
+        <TextInput label="Name" source="name" />
       </SimpleForm>
     </Create>
   );
