@@ -4,5 +4,5 @@ import { StringFilter } from "../../util/StringFilter";
 export type ClientsGroupWhereInput = {
   customers?: CustomerListRelationFilter;
   id?: StringFilter;
-  name?: "Round";
+  name?: "RoundA" | "RoundB" | "RoundC";
 };

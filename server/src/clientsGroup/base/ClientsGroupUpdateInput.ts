@@ -38,6 +38,6 @@ class ClientsGroupUpdateInput {
   @Field(() => EnumClientsGroupName, {
     nullable: true,
   })
-  name?: "Round" | null;
+  name?: "RoundA" | "RoundB" | "RoundC" | null;
 }
 export { ClientsGroupUpdateInput };

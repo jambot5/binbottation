@@ -57,7 +57,7 @@ class ClientsGroup {
   @Field(() => EnumClientsGroupName, {
     nullable: true,
   })
-  name?: "Round" | null;
+  name?: "RoundA" | "RoundB" | "RoundC" | null;
 
   @ApiProperty({
     required: true,

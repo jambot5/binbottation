@@ -12,7 +12,9 @@ https://docs.amplication.com/docs/how-to/custom-code
 import { registerEnumType } from "@nestjs/graphql";
 
 export enum EnumClientsGroupName {
-  Round = "Round",
+  RoundA = "RoundA",
+  RoundB = "RoundB",
+  RoundC = "RoundC",
 }
 
 registerEnumType(EnumClientsGroupName, {

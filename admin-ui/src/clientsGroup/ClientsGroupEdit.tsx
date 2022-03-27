@@ -26,7 +26,11 @@ export const ClientsGroupEdit = (props: EditProps): React.ReactElement => {
         <SelectInput
           source="name"
           label="Name"
-          choices={[{ label: "Round", value: "Round" }]}
+          choices={[
+            { label: "Round A", value: "RoundA" },
+            { label: "Round B", value: "RoundB" },
+            { label: "RoundC", value: "RoundC" },
+          ]}
           optionText="label"
           allowEmpty
           optionValue="value"

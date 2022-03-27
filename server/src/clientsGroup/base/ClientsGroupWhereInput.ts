@@ -50,6 +50,6 @@ class ClientsGroupWhereInput {
   @Field(() => EnumClientsGroupName, {
     nullable: true,
   })
-  name?: "Round";
+  name?: "RoundA" | "RoundB" | "RoundC";
 }
 export { ClientsGroupWhereInput };

@@ -1,3 +1,5 @@
 export enum EnumClientsGroupName {
-  Round = "Round",
+  RoundA = "RoundA",
+  RoundB = "RoundB",
+  RoundC = "RoundC",
 }
