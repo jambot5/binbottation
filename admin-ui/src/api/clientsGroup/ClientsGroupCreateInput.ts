@@ -2,5 +2,5 @@ import { CustomerCreateNestedManyWithoutClientsGroupsInput } from "./CustomerCre
 
 export type ClientsGroupCreateInput = {
   customers?: CustomerCreateNestedManyWithoutClientsGroupsInput;
-  name?: "Round" | null;
+  name?: string | null;
 };

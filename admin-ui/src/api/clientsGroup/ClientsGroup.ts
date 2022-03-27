@@ -4,6 +4,6 @@ export type ClientsGroup = {
   createdAt: Date;
   customers?: Array<Customer>;
   id: string;
-  name?: "Round" | null;
+  name: string | null;
   updatedAt: Date;
 };

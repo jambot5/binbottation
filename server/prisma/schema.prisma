@@ -28,11 +28,11 @@ model Company {
 }
 
 model ClientsGroup {
-  createdAt DateTime              @default(now())
+  createdAt DateTime   @default(now())
   customers Customer[]
-  id        String                @id @default(cuid())
-  name      EnumClientsGroupName?
-  updatedAt DateTime              @updatedAt
+  id        String     @id @default(cuid())
+  name      String?    @unique
+  updatedAt DateTime   @updatedAt
 }
 
 model Customer {
@@ -43,8 +43,4 @@ model Customer {
   name         String?
   notes        String?
   updatedAt    DateTime       @updatedAt
-}
-
-enum EnumClientsGroupName {
-  Round
 }

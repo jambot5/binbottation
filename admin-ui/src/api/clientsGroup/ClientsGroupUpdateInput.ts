@@ -2,5 +2,5 @@ import { CustomerUpdateManyWithoutClientsGroupsInput } from "./CustomerUpdateMan
 
 export type ClientsGroupUpdateInput = {
   customers?: CustomerUpdateManyWithoutClientsGroupsInput;
-  name?: "Round" | null;
+  name?: string | null;
 };
