@@ -11,25 +11,23 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CompanyListRelationFilter } from "../../company/base/CompanyListRelationFilter";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { HistoryListRelationFilter } from "../../history/base/HistoryListRelationFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 @InputType()
-class UserWhereInput {
+class HistoryWhereInput {
   @ApiProperty({
     required: false,
-    type: () => CompanyListRelationFilter,
+    type: StringNullableFilter,
   })
-  @ValidateNested()
-  @Type(() => CompanyListRelationFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => CompanyListRelationFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  company?: CompanyListRelationFilter;
+  action?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -40,19 +38,7 @@ class UserWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  firstName?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => HistoryListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => HistoryListRelationFilter)
-  @IsOptional()
-  @Field(() => HistoryListRelationFilter, {
-    nullable: true,
-  })
-  histories?: HistoryListRelationFilter;
+  customer?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -67,24 +53,14 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: () => UserWhereUniqueInput,
   })
-  @Type(() => StringNullableFilter)
+  @ValidateNested()
+  @Type(() => UserWhereUniqueInput)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => UserWhereUniqueInput, {
     nullable: true,
   })
-  lastName?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringFilter,
-  })
-  @Type(() => StringFilter)
-  @IsOptional()
-  @Field(() => StringFilter, {
-    nullable: true,
-  })
-  username?: StringFilter;
+  user?: UserWhereUniqueInput;
 }
-export { UserWhereInput };
+export { HistoryWhereInput };

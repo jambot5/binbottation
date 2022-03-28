@@ -3,6 +3,7 @@ import { UserModule } from "./user/user.module";
 import { CompanyModule } from "./company/company.module";
 import { ClientsGroupModule } from "./clientsGroup/clientsGroup.module";
 import { CustomerModule } from "./customer/customer.module";
+import { HistoryModule } from "./history/history.module";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
@@ -20,6 +21,7 @@ import { GraphQLModule } from "@nestjs/graphql";
     CompanyModule,
     ClientsGroupModule,
     CustomerModule,
+    HistoryModule,
     ACLModule,
     AuthModule,
     HealthModule,

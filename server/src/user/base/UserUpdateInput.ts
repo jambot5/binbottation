@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { CompanyUpdateManyWithoutUsersInput } from "./CompanyUpdateManyWithoutUsersInput";
 import { ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { HistoryUpdateManyWithoutUsersInput } from "./HistoryUpdateManyWithoutUsersInput";
 @InputType()
 class UserUpdateInput {
   @ApiProperty({
@@ -38,6 +39,18 @@ class UserUpdateInput {
     nullable: true,
   })
   firstName?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => HistoryUpdateManyWithoutUsersInput,
+  })
+  @ValidateNested()
+  @Type(() => HistoryUpdateManyWithoutUsersInput)
+  @IsOptional()
+  @Field(() => HistoryUpdateManyWithoutUsersInput, {
+    nullable: true,
+  })
+  histories?: HistoryUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
