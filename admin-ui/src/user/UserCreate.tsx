@@ -11,6 +11,7 @@ import {
 } from "react-admin";
 
 import { CompanyTitle } from "../company/CompanyTitle";
+import { HistoryTitle } from "../history/HistoryTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
 export const UserCreate = (props: CreateProps): React.ReactElement => {
@@ -26,6 +27,14 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
           <SelectArrayInput optionText={CompanyTitle} />
         </ReferenceArrayInput>
         <TextInput label="First Name" source="firstName" />
+        <ReferenceArrayInput
+          source="history"
+          reference="History"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={HistoryTitle} />
+        </ReferenceArrayInput>
         <TextInput label="Last Name" source="lastName" />
         <PasswordInput label="Password" source="password" />
         <SelectArrayInput

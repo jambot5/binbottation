@@ -11,20 +11,21 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Company } from "../../company/base/Company";
-import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
+import { IsString, IsOptional, IsDate, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
-import { History } from "../../history/base/History";
+import { User } from "../../user/base/User";
 @ObjectType()
-class User {
+class History {
   @ApiProperty({
     required: false,
-    type: () => [Company],
+    type: String,
   })
-  @ValidateNested()
-  @Type(() => Company)
+  @IsString()
   @IsOptional()
-  company?: Array<Company>;
+  @Field(() => String, {
+    nullable: true,
+  })
+  action!: string | null;
 
   @ApiProperty({
     required: true,
@@ -43,16 +44,7 @@ class User {
   @Field(() => String, {
     nullable: true,
   })
-  firstName!: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => [History],
-  })
-  @ValidateNested()
-  @Type(() => History)
-  @IsOptional()
-  histories?: Array<History>;
+  customer!: string | null;
 
   @ApiProperty({
     required: true,
@@ -63,27 +55,6 @@ class User {
   id!: string;
 
   @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  lastName!: string | null;
-
-  @ApiProperty({
-    required: true,
-    type: [String],
-  })
-  @IsString({
-    each: true,
-  })
-  @Field(() => [String])
-  roles!: Array<string>;
-
-  @ApiProperty({
     required: true,
   })
   @IsDate()
@@ -92,11 +63,12 @@ class User {
   updatedAt!: Date;
 
   @ApiProperty({
-    required: true,
-    type: String,
+    required: false,
+    type: () => User,
   })
-  @IsString()
-  @Field(() => String)
-  username!: string;
+  @ValidateNested()
+  @Type(() => User)
+  @IsOptional()
+  user?: User | null;
 }
-export { User };
+export { History };

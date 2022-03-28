@@ -21,6 +21,10 @@ import { CustomerList } from "./customer/CustomerList";
 import { CustomerCreate } from "./customer/CustomerCreate";
 import { CustomerEdit } from "./customer/CustomerEdit";
 import { CustomerShow } from "./customer/CustomerShow";
+import { HistoryList } from "./history/HistoryList";
+import { HistoryCreate } from "./history/HistoryCreate";
+import { HistoryEdit } from "./history/HistoryEdit";
+import { HistoryShow } from "./history/HistoryShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -74,6 +78,13 @@ const App = (): React.ReactElement => {
           edit={CustomerEdit}
           create={CustomerCreate}
           show={CustomerShow}
+        />
+        <Resource
+          name="History"
+          list={HistoryList}
+          edit={HistoryEdit}
+          create={HistoryCreate}
+          show={HistoryShow}
         />
       </Admin>
     </div>
